@@ -1,0 +1,144 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #CAD9F0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.chat-container {
+    width: 80%;
+    height: 80%;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+/* Header */
+.chat-header {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background: #257cff;
+    color: white;
+}
+
+.bot-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.chat-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-title {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.chat-subtitle {
+    font-size: 12px;
+    opacity: 0.9;
+    margin: 0;
+}
+
+/* Chat body */
+.chat-body {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    background: #ece5dd;
+}
+
+.message {
+    display: flex;
+    margin-bottom: 12px;
+    font-size: 14px;
+}
+
+.message.user {
+    justify-content: flex-end;
+}
+
+.message.bot {
+    align-items: flex-start;
+}
+
+/* User bubble */
+.message.user .msg-text {
+    background: #dcf8c6;
+    padding: 10px 14px;
+    border-radius: 12px 12px 0 12px;
+    max-width: 70%;
+}
+
+/* Bot bubble */
+.message.bot {
+    display: flex;
+}
+
+.msg-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.msg-bubble {
+    max-width: 70%;
+    background: #fff;
+    padding: 10px 14px;
+    border-radius: 12px 12px 12px 0;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.msg-time {
+    font-size: 11px;
+    color: gray;
+    margin-left: 6px;
+    display: block;
+    text-align: right;
+}
+
+/* Footer */
+.chat-footer {
+    padding: 10px;
+    background: #f1f1f1;
+    display: flex;
+    border-top: 1px solid #ddd;
+}
+
+#messageArea {
+    display: flex;
+    width: 100%;
+}
+
+#text {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    background: #fff;
+}
+
+#send {
+    background: #257cff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin-left: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}

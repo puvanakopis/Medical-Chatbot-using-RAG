@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Medical Chatbot</title>
+    <link rel="stylesheet" type="text/css" href="../static/style.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <img src="https://cdn-icons-png.flaticon.com/512/387/387569.png" class="bot-avatar">
+            <div class="chat-info">
+                <span class="chat-title">Medical Chatbot</span>
+                <p class="chat-subtitle">Ask me anything!</p>
+            </div>
+        </div>
+
+        <div id="messageFormeight" class="chat-body"></div>
+
+        <div class="chat-footer">
+            <form id="messageArea">
+                <input type="text" id="text" name="msg" placeholder="Type your message..." autocomplete="off" required/>
+                <button type="submit" id="send"><i class="fas fa-paper-plane"></i> ➤</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $("#messageArea").on("submit", function(event) {
+                const date = new Date();
+                const hour = String(date.getHours()).padStart(2, "0");
+                const minute = String(date.getMinutes()).padStart(2, "0");
+                const str_time = hour + ":" + minute;
+
+                var rawText = $("#text").val();
+
+                var userHtml = `
+                    <div class="message user">
+                        <div class="msg-text">${rawText}</div>
+                        <span class="msg-time">${str_time}</span>
+                    </div>
+                `;
+
+                $("#text").val("");
+                $("#messageFormeight").append(userHtml);
+
+                $.ajax({
+                    data: { msg: rawText },
+                    type: "POST",
+                    url: "/get",
+                }).done(function(data) {
+                    var botHtml = `
+                        <div class="message bot">
+                            <img src="https://cdn-icons-png.flaticon.com/512/387/387569.png" class="msg-avatar">
+                            <div class="msg-bubble">
+                                <div class="msg-text">${data}</div>
+                                <span class="msg-time">${str_time}</span>
+                            </div>
+                        </div>
+                    `;
+                    $("#messageFormeight").append(botHtml);
+                });
+
+                event.preventDefault();
+            });
+        });
+    </script>
+</body>
+</html>
