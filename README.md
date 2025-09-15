@@ -126,3 +126,11 @@ By default, it runs at:
 - The chatbot gives concise answers in **max 3 sentences**  
 - If it doesn’t know the answer, it replies: *"I don’t know."*  
 - Supports multiple PDFs if added to the `data/` folder  
+
+
+---
+
+## 📸 Example Chatbot UI  
+
+Here’s how the chatbot interface looks:  
+<img width="1920" height="990" alt="image" src="https://github.com/user-attachments/assets/219424e3-9562-4c57-bf40-4b97a8876a11" />
